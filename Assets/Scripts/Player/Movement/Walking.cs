@@ -5,21 +5,18 @@ using UnityEngine;
 public class Walking : MonoBehaviour
 {
     [SerializeField] Animator cameraAnimator;
-    int isWalkingHash;
-    int isRunningHash;
     private CharacterController character_Controller;
 
     private Vector3 move_Direction;
 
-    [SerializeField]
-    float speed = 1.5f;
+    private float speed = 3f;
+    [SerializeField] private float walkingSpeed;
     private float gravity = 20;
 
     private float vertical_Velocity;
-    bool CanRun = false;
+    private bool CanRun = false;
 
-    [SerializeField]
-    float runSpeed = 2.5f;
+    [SerializeField] private float runSpeed = 6f;
 
     [SerializeField]
     AudioSource FootStepSound;
@@ -29,6 +26,7 @@ public class Walking : MonoBehaviour
     void Start()
     {
         walkSoundAcces = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Awake()
@@ -41,7 +39,11 @@ public class Walking : MonoBehaviour
     void Update()
     {
         MoveThePlayer();
+        WalkingLogic();
+    }
 
+    public void WalkingLogic()
+	{
         if (Input.GetKey(KeyCode.LeftShift) && CanRun == true)
         {
             speed = runSpeed;
@@ -50,7 +52,7 @@ public class Walking : MonoBehaviour
         }
         else
         {
-            speed = 2.5f;
+            speed = walkingSpeed;
         }
 
         if (Input.GetKey(KeyCode.W))
@@ -77,6 +79,28 @@ public class Walking : MonoBehaviour
             CanRun = false;
         }
 
+        if (Input.GetAxisRaw("Vertical") == 0)
+        {
+            if (Input.GetAxisRaw("Horizontal") == 0)
+            {
+                speed = 0;
+                cameraAnimator.SetBool("isWalking", false);
+                cameraAnimator.SetBool("isRunning", false);
+            }
+        }
+
+        if (speed > 1 && speed < 6)
+        {
+            cameraAnimator.SetBool("isWalking", true);
+            cameraAnimator.SetBool("isRunning", false);
+        }
+
+        if (speed >= 6)
+        {
+            cameraAnimator.SetBool("isWalking", false);
+            cameraAnimator.SetBool("isRunning", true);
+        }
+
         if (walkSoundAcces == true)
         {
             if (character_Controller.isGrounded && character_Controller.velocity.magnitude > 1f && FootStepSound.isPlaying == false)
@@ -93,50 +117,27 @@ public class Walking : MonoBehaviour
         {
             FootStepSound.Stop();
         }
+    }
 
-        if (Input.GetAxisRaw("Vertical") == 0)
+    public void MoveThePlayer()
+    {
+        move_Direction = new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0f, Input.GetAxis(Axis.VERTICAL));
+        move_Direction = transform.TransformDirection(move_Direction);
+        move_Direction *= speed * Time.deltaTime;
+        ApplyGravity();
+        character_Controller.Move(move_Direction);
+    }
+
+    public void ApplyGravity()
+    {
+        if (character_Controller.isGrounded)
         {
-            if (Input.GetAxisRaw("Horizontal") == 0)
-            {
-                speed = 0;
-                cameraAnimator.SetBool("isWalking", false);
-                cameraAnimator.SetBool("isRunning", false);
-            }
+            vertical_Velocity -= gravity * Time.deltaTime;
         }
-
-        if (speed == 1.5f)
+        else
         {
-            cameraAnimator.SetBool("isWalking", true);
-            cameraAnimator.SetBool("isRunning", false);
+            vertical_Velocity -= gravity * Time.deltaTime;
         }
-
-        if (speed == 2.5f)
-        {
-            cameraAnimator.SetBool("isWalking", false);
-            cameraAnimator.SetBool("isRunning", true);
-        }
-
-        void MoveThePlayer()
-        {
-            move_Direction = new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0f, Input.GetAxis(Axis.VERTICAL));
-            move_Direction = transform.TransformDirection(move_Direction);
-            move_Direction *= speed * Time.deltaTime;
-            ApplyGravity();
-            character_Controller.Move(move_Direction);
-
-        }
-
-        void ApplyGravity()
-        {
-            if (character_Controller.isGrounded)
-            {
-                vertical_Velocity -= gravity * Time.deltaTime;
-            }
-            else
-            {
-                vertical_Velocity -= gravity * Time.deltaTime;
-            }
-            move_Direction.y = vertical_Velocity * Time.deltaTime;
-        }
+        move_Direction.y = vertical_Velocity * Time.deltaTime;
     }
 }
