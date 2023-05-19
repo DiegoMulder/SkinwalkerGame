@@ -11,15 +11,14 @@ public class Walking : MonoBehaviour
 
     private Vector3 move_Direction;
 
-    [SerializeField]
-    float speed = 1.5f;
+    private float speed = 1.5f;
+    [SerializeField] private float walkingSpeed;
     private float gravity = 20;
 
     private float vertical_Velocity;
     bool CanRun = false;
 
-    [SerializeField]
-    float runSpeed = 2.5f;
+    [SerializeField] private float runSpeed = 2.5f;
 
     [SerializeField]
     AudioSource FootStepSound;
@@ -29,6 +28,7 @@ public class Walking : MonoBehaviour
     void Start()
     {
         walkSoundAcces = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Awake()
@@ -50,7 +50,7 @@ public class Walking : MonoBehaviour
         }
         else
         {
-            speed = 1.5f;
+            speed = walkingSpeed;
         }
 
         if (Input.GetKey(KeyCode.W))
@@ -104,13 +104,13 @@ public class Walking : MonoBehaviour
             }
         }
 
-        if (speed == 1.5f)
+        if (speed >= 1)
         {
             cameraAnimator.SetBool("isWalking", true);
             cameraAnimator.SetBool("isRunning", false);
         }
 
-        if (speed == 2.5f)
+        if (speed >= 3)
         {
             cameraAnimator.SetBool("isWalking", false);
             cameraAnimator.SetBool("isRunning", true);
