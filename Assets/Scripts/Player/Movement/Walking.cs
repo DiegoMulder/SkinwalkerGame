@@ -50,7 +50,7 @@ public class Walking : MonoBehaviour
         }
         else
         {
-            speed = 1.5f;
+            speed = 2.5f;
         }
 
         if (Input.GetKey(KeyCode.W))
