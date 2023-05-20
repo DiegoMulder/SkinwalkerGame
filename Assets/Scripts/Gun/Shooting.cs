@@ -35,7 +35,8 @@ public class Shooting : MonoBehaviour
                     if (hitInfo.collider.gameObject.tag == "skinwalker")
                     {
                         Debug.Log("Hit");
-                        Navmesh.dead = true;
+                        PigNavmesh.dead = true;
+                        SkinwalkerTrueForm.dead = true;
                     }
                 }
             }

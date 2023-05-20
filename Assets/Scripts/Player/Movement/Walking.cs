@@ -26,7 +26,6 @@ public class Walking : MonoBehaviour
     void Start()
     {
         walkSoundAcces = false;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Awake()

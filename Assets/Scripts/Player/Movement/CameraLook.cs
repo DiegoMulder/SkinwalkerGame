@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CameraLook : MonoBehaviour
 {
-    public float mouseSensitivity = 50f;
+    public float mouseSensitivity = 200f;
 
     public Transform playerBody;
 
-    float xRotation = 1;
+    float yRotation = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +22,10 @@ public class CameraLook : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        yRotation -= mouseY;
+        yRotation = Mathf.Clamp(yRotation, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 1f, 1f);
+        transform.localRotation = Quaternion.Euler(yRotation, 0, 0);
         playerBody.Rotate(Vector3.up * mouseX);
     }
 }

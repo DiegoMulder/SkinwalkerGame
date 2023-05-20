@@ -3018,7 +3018,7 @@ GameObject:
   - component: {fileID: 1683478993653763295}
   - component: {fileID: 2024152069486728807}
   - component: {fileID: 2024152069486728806}
-  - component: {fileID: 2024152069486728808}
+  - component: {fileID: 2024152069486728809}
   m_Layer: 0
   m_Name: ManThing
   m_TagString: Untagged
@@ -3068,7 +3068,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &2024152069486728808
+--- !u!114 &2024152069486728809
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3077,7 +3077,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2024152069486728805}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b1ad3374321b0d42899c62d37c6524e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b4c59ca5a8135746aa2571ad25a5de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skinwalker: {fileID: 2024152069486728806}
@@ -5455,6 +5455,8 @@ MonoBehaviour:
   hitBox: {fileID: 900249257}
   pigSkinwalker: {fileID: 9218857549146640313}
   gameObjectSkinwalker: {fileID: 2024152069486728805}
+  attackTimer: 0
+  walkingRange: 30
 --- !u!4 &5903178581402519728
 Transform:
   m_ObjectHideFlags: 0
