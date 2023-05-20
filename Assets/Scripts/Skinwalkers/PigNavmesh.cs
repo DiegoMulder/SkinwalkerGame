@@ -81,7 +81,7 @@ public class PigNavmesh : MonoBehaviour
 
     private Vector3 RandomPosition()
     {
-        Vector3 randomPos = UnityEngine.Random.insideUnitCircle * walkingRange;
+        Vector3 randomPos = Random.insideUnitSphere * walkingRange;
 
         Vector3 newRandomPosition = transform.position + randomPos;
 
