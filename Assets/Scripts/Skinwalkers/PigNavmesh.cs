@@ -21,11 +21,14 @@ public class PigNavmesh : MonoBehaviour
     private float distance;
     [SerializeField] private float attackTimer;
     [SerializeField] private float walkingRange;
+    [Space]
+    [SerializeField] private float minimumRandomValue = 10;
+    [SerializeField] private float maximumRandomValue = 120;
 
     // Start is called before the first frame update
     void Start()
     {
-        attackTimer = Random.Range(10, 120);
+        attackTimer = Random.Range(minimumRandomValue, maximumRandomValue);
         skinwalkerTransform = false;
         dead = false;
     }
