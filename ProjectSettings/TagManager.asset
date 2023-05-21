@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - skinwalker
+  - skinwalker2
   layers:
   - Default
   - TransparentFX
