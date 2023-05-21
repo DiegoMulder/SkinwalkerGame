@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PigNavMesh : MonoBehaviour
+public class PigNavmesh : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent skinwalker;
     [Space]

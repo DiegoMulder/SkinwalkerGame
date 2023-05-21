@@ -36,7 +36,7 @@ public class Shooting : MonoBehaviour
                     {
                         Debug.Log("Hit");
                         TrueForm2.dead = true;
-                        PigNavMesh.dead = true;
+                        PigNavmesh.dead = true;
                     }
 
                     if (hitInfo.collider.gameObject.tag == "skinwalker2")
