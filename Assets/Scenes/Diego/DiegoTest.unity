@@ -2258,7 +2258,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.05
-  m_Speed: 1
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -6131,6 +6131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotSound: {fileID: 1551688999}
   gunAnimator: {fileID: 610813102090074747}
+  flinchTimer: 0.6
 --- !u!137 &621753616799813556
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -7705,7 +7706,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.05
-  m_Speed: 1
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
