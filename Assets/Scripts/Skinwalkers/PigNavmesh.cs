@@ -59,11 +59,6 @@ public class PigNavmesh : MonoBehaviour
                 pigSkinwalker.SetActive(false);
                 gameObjectSkinwalker.SetActive(true);
             }
-            else if (distance >= 5f && !dead)
-            {
-                pigSkinwalker.SetActive(true);
-                gameObjectSkinwalker.SetActive(false);
-            }
         }
         else RoamingBehaviour();
     }

@@ -48,10 +48,5 @@ public class TrueForm2 : MonoBehaviour
             NPCSkinwalker.SetActive(false);
             gameObjectSkinwalker.SetActive(true);
         }
-        else if (distance >= 5f && !dead)
-        {
-            NPCSkinwalker.SetActive(true);
-            gameObjectSkinwalker.SetActive(false);
-        }
     }
 }
