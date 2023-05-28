@@ -11,6 +11,7 @@ public class SlomoShot : MonoBehaviour
     private float distance;
 
     [SerializeField] private GameObject inputText;
+    [SerializeField] private GameObject inputTextGunSwap;
 
     private Ray ray;
     // Update is called once per frame
@@ -30,8 +31,18 @@ public class SlomoShot : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo))
 		{
-            if(distance <= 4)
+            if(distance <= 4 && QuickSwap.gunSwap == false)
 			{
+                inputText.SetActive(false);
+
+                if (hitInfo.collider.gameObject.tag == "skinwalker") inputTextGunSwap.SetActive(true);
+                else if (hitInfo.collider.gameObject.tag == "skinwalker2") inputTextGunSwap.SetActive(true);
+                else inputTextGunSwap.SetActive(false);
+            }
+            else if (distance <= 4 && QuickSwap.gunSwap == true)
+            {
+                inputTextGunSwap.SetActive(false);
+
                 if (hitInfo.collider.gameObject.tag == "skinwalker") inputText.SetActive(true);
                 else if (hitInfo.collider.gameObject.tag == "skinwalker2") inputText.SetActive(true);
                 else inputText.SetActive(false);

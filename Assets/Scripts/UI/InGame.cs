@@ -19,9 +19,20 @@ public class InGame : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo))
         {
-            if (hitInfo.collider.gameObject.tag == "skinwalker") mainGameCursor.color = Color.red;
-            else if (hitInfo.collider.gameObject.tag == "skinwalker2") mainGameCursor.color = Color.red;
-            else mainGameCursor.color = Color.white;
+            if (hitInfo.collider.gameObject.tag == "skinwalker")
+			{
+                mainGameCursor.color = Color.red;
+                QuickSwap.canUsePistol = true;
+            }
+            else if (hitInfo.collider.gameObject.tag == "skinwalker2")
+			{
+                mainGameCursor.color = Color.red;
+                QuickSwap.canUsePistol = true;
+            }
+			else
+			{
+                mainGameCursor.color = Color.white;
+            }
         }
     }
 }
