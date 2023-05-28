@@ -14,7 +14,6 @@ public class TrueForm2 : MonoBehaviour
     [SerializeField] private Animator skinwalkerAnimator;
     [Space]
     [SerializeField] private GameObject hitBox;
-    [SerializeField] private GameObject NPCSkinwalker;
     [SerializeField] private GameObject gameObjectSkinwalker;
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject deathCamera;
@@ -60,6 +59,13 @@ public class TrueForm2 : MonoBehaviour
             skinwalker.angularSpeed = 0;
             playerDeath = true;
             inGamePanel.SetActive(false);
+        }
+        else if (distance >= 20 && SkinwalkerParent.isChanged == true && !dead)
+        {
+            gameObjectSkinwalker.SetActive(false);
+            SkinwalkerParent.isChanged = false;
+            SkinwalkerParent.canChange = true;
+            PigNavmesh.skinwalkerTransform = false;
         }
     }
 }

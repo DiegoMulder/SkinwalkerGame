@@ -32,7 +32,8 @@ public class QuickSwap : MonoBehaviour
             tekstTimer -= Time.deltaTime;
             pistolTekst.SetActive(true);
         }
-        
+        else pistolTekst.SetActive(false);
+
         if (tekstTimer <= 0)
 		{
             pistolTekst.SetActive(false);

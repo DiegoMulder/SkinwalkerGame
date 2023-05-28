@@ -10,11 +10,10 @@ public class PigNavmesh : MonoBehaviour
     [SerializeField] private Transform player;
     [Space]
     public static bool dead = false;
-    private bool skinwalkerTransform = false;
+    public static bool skinwalkerTransform = false;
     [Space]
     [SerializeField] private Animator skinwalkerAnimator;
     [Space]
-    [SerializeField] private GameObject hitBox;
     [SerializeField] private GameObject pigSkinwalker;
     [SerializeField] private GameObject gameObjectSkinwalker;
     [Space]
@@ -51,14 +50,12 @@ public class PigNavmesh : MonoBehaviour
             {
                 skinwalkerAnimator.SetTrigger("death");
                 skinwalker.enabled = false;
-                hitBox.SetActive(false);
             }
 
             if (distance <= 4 && !dead)
             {
                 pigSkinwalker.SetActive(false);
                 gameObjectSkinwalker.SetActive(true);
-                skinwalker.speed = 0;
             }
         }
         else RoamingBehaviour();
@@ -72,7 +69,7 @@ public class PigNavmesh : MonoBehaviour
 
             if (attackTimer < 0)
             {
-                attackTimer = 0;
+                attackTimer = attackTimer = Random.Range(minimumRandomValue, maximumRandomValue);
                 skinwalkerTransform = true;
             }
         }
