@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeftDoor : MonoBehaviour
+public class RightDoor2 : MonoBehaviour
 {
     public Animator animator;
     bool isOpen = false;
 
     public GameObject Player;
-    public GameObject LeftDoorObject;
+    public GameObject RightDoorObject;
     public static float distance;
 
     public AudioSource openDoor;
@@ -45,16 +45,16 @@ public class LeftDoor : MonoBehaviour
     }
 
     public void DoorOpenCloseLogic()
-	{
-		if (usedDoor) doorCooldown -= Time.deltaTime;
+    {
+        if (usedDoor) doorCooldown -= Time.deltaTime;
 
-        if(doorCooldown < 0)
-		{
+        if (doorCooldown < 0)
+        {
             doorCooldown = 1;
             usedDoor = false;
-		}
+        }
 
-        distance = Vector3.Distance(Player.transform.position, LeftDoorObject.transform.position);
+        distance = Vector3.Distance(Player.transform.position, RightDoorObject.transform.position);
 
         if (distance <= 2.5f)
         {

@@ -9,7 +9,7 @@ public class RightDoor : MonoBehaviour
 
     public GameObject Player;
     public GameObject RightDoorObject;
-    public float distance;
+    public static float distance;
 
     public AudioSource openDoor;
     public AudioSource closeDoor;

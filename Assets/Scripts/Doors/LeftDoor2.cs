@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeftDoor : MonoBehaviour
+public class LeftDoor2 : MonoBehaviour
 {
     public Animator animator;
     bool isOpen = false;
@@ -64,7 +64,7 @@ public class LeftDoor : MonoBehaviour
                 RaycastHit hitInfo;
                 if (Physics.Raycast(ray, out hitInfo))
                 {
-                    if (hitInfo.collider.gameObject.tag == "door")
+                    if (hitInfo.collider.gameObject.tag == "door3")
                     {
                         usedDoor = true;
                         if (isOpen)

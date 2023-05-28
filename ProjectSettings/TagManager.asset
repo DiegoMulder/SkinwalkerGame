@@ -8,6 +8,8 @@ TagManager:
   - skinwalker2
   - door
   - door2
+  - door3
+  - door4
   layers:
   - Default
   - TransparentFX

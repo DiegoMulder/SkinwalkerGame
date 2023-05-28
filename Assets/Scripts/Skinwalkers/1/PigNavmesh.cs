@@ -48,7 +48,7 @@ public class PigNavmesh : MonoBehaviour
             if (!dead) skinwalker.SetDestination(player.transform.position);
             else
             {
-                skinwalkerAnimator.SetTrigger("death");
+                skinwalkerAnimator.SetBool("death", true);
                 skinwalker.enabled = false;
             }
 

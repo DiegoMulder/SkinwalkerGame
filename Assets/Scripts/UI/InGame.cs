@@ -7,6 +7,7 @@ public class InGame : MonoBehaviour
 {
     private Ray ray;
     [SerializeField] private Image mainGameCursor;
+    [SerializeField] private Sprite normalSprite, interactionSprite;
     // Update is called once per frame
     void Update()
     {
@@ -32,6 +33,30 @@ public class InGame : MonoBehaviour
 			else
 			{
                 mainGameCursor.color = Color.white;
+            }
+
+            if(LeftDoor.distance <= 2.5f)
+			{
+                if (hitInfo.collider.gameObject.tag == "door") mainGameCursor.sprite = interactionSprite;
+                else mainGameCursor.sprite = normalSprite;
+            }
+
+            if(RightDoor.distance <= 2.5f)
+			{
+                if (hitInfo.collider.gameObject.tag == "door2") mainGameCursor.sprite = interactionSprite;
+                else mainGameCursor.sprite = normalSprite;
+            }
+
+            if (LeftDoor2.distance <= 2.5f)
+            {
+                if (hitInfo.collider.gameObject.tag == "door3") mainGameCursor.sprite = interactionSprite;
+                else mainGameCursor.sprite = normalSprite;
+            }
+
+            if (RightDoor2.distance <= 2.5f)
+            {
+                if (hitInfo.collider.gameObject.tag == "door") mainGameCursor.sprite = interactionSprite;
+                else mainGameCursor.sprite = normalSprite;
             }
         }
     }

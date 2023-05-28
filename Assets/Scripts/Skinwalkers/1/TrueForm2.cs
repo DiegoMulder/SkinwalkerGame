@@ -43,9 +43,18 @@ public class TrueForm2 : MonoBehaviour
             if (!dead) skinwalker.SetDestination(player.transform.position);
             else
             {
-                skinwalkerAnimator.SetTrigger("death");
+                skinwalkerAnimator.SetBool("death", true);
                 skinwalker.enabled = false;
                 hitBox.SetActive(false);
+            }
+
+            if (distance >= 30 && dead)
+            {
+                PigNavmesh.skinwalkerTransform = false;
+                skinwalkerAnimator.SetBool("death", false);
+                skinwalker.enabled = true;
+                hitBox.SetActive(true);
+                dead = false;
             }
         }
 
