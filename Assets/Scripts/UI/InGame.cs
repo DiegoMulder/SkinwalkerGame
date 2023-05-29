@@ -55,7 +55,7 @@ public class InGame : MonoBehaviour
 
             if (RightDoor2.distance <= 2.5f)
             {
-                if (hitInfo.collider.gameObject.tag == "door") mainGameCursor.sprite = interactionSprite;
+                if (hitInfo.collider.gameObject.tag == "door4") mainGameCursor.sprite = interactionSprite;
                 else mainGameCursor.sprite = normalSprite;
             }
         }

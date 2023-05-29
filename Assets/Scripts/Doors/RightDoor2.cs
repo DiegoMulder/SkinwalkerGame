@@ -64,7 +64,7 @@ public class RightDoor2 : MonoBehaviour
                 RaycastHit hitInfo;
                 if (Physics.Raycast(ray, out hitInfo))
                 {
-                    if (hitInfo.collider.gameObject.tag == "door")
+                    if (hitInfo.collider.gameObject.tag == "door4")
                     {
                         usedDoor = true;
                         if (isOpen)

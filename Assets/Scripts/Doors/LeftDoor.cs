@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LeftDoor : MonoBehaviour
 {
-    public Animator animator;
+    public Animator animator1, animator2;
     bool isOpen = false;
 
     public GameObject Player;
@@ -20,7 +20,7 @@ public class LeftDoor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        animator1 = GetComponent<Animator>();
         usedDoor = false;
     }
 
@@ -34,14 +34,16 @@ public class LeftDoor : MonoBehaviour
     public void OpenDoor()
     {
         isOpen = true;
-        animator.SetTrigger("open");
+        animator1.SetTrigger("open");
+        animator2.SetTrigger("open");
     }
 
     [ContextMenu("Close")]
     public void CloseDoor()
     {
         isOpen = false;
-        animator.SetTrigger("close");
+        animator1.SetTrigger("close");
+        animator2.SetTrigger("close");
     }
 
     public void DoorOpenCloseLogic()
