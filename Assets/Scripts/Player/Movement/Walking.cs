@@ -25,7 +25,7 @@ public class Walking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        walkSoundAcces = false;
+        walkSoundAcces = true;
     }
 
     void Awake()
