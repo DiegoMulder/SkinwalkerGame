@@ -52,5 +52,11 @@ public class QuickSwap : MonoBehaviour
         {
             timerTekstBool = true;
         }
+
+        if(TrueForm2.dead == true && TrueForm2.distance >= 6)
+		{
+            gunParent.SetActive(false);
+            canUsePistol = false;
+		}
 	}
 }

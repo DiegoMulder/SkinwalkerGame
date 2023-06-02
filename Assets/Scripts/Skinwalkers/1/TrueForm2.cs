@@ -18,8 +18,9 @@ public class TrueForm2 : MonoBehaviour
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject deathCamera;
     [SerializeField] private GameObject inGamePanel;
+    [SerializeField] private GameObject skinwalkerGameObject;
     [Space]
-    private float distance;
+    public static float distance;
     public static bool playerDeath = false;
     // Start is called before the first frame update
     void Start()
@@ -55,6 +56,7 @@ public class TrueForm2 : MonoBehaviour
                 skinwalker.enabled = true;
                 hitBox.SetActive(true);
                 dead = false;
+                skinwalkerGameObject.transform.position = new Vector3(skinwalker.transform.position.x, 0, skinwalker.transform.position.z);
             }
         }
 
