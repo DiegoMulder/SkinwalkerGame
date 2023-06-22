@@ -139,4 +139,11 @@ public class Walking : MonoBehaviour
         }
         move_Direction.y = vertical_Velocity * Time.deltaTime;
     }
+
+    public void Teleport(Vector3 position)
+	{
+        character_Controller.enabled = false;
+        transform.position = position;
+        character_Controller.enabled = true;
+    }
 }

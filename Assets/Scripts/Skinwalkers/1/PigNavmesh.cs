@@ -45,12 +45,14 @@ public class PigNavmesh : MonoBehaviour
 
 		if (skinwalkerTransform)
 		{
-            if (!dead) skinwalker.SetDestination(player.transform.position);
-            else
+            RoamingBehaviour();
+            //if (!dead) skinwalker.SetDestination(player.transform.position);
+            if (dead)
             {
                 skinwalkerAnimator.SetBool("death", true);
                 skinwalker.enabled = false;
             }
+            else skinwalker.enabled = true;
 
             if (distance <= 4 && !dead)
             {

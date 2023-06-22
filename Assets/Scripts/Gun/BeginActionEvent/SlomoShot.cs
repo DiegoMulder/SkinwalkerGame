@@ -24,6 +24,14 @@ public class SlomoShot : MonoBehaviour
     {
         distance = Vector3.Distance(skinwalker.transform.position, player.transform.position);
 
+        if (distance <= 4 && QuickSwap.gunSwap == false && TrueForm2.dead == false)
+        {
+            inputText.SetActive(false);
+            inputTextGunSwap.SetActive(true);
+            QuickSwap.canUsePistol = true;
+        }
+        else inputTextGunSwap.SetActive(false);
+
         if (distance <= 4 && PigNavmesh.dead == false && TrueForm2.playerDeath == false) Time.timeScale = 0.5f;
         else Time.timeScale = 1;
 
@@ -31,15 +39,8 @@ public class SlomoShot : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo))
 		{
-            if(distance <= 4 && QuickSwap.gunSwap == false)
-			{
-                inputText.SetActive(false);
-
-                if (hitInfo.collider.gameObject.tag == "skinwalker") inputTextGunSwap.SetActive(true);
-                else if (hitInfo.collider.gameObject.tag == "skinwalker2") inputTextGunSwap.SetActive(true);
-                else inputTextGunSwap.SetActive(false);
-            }
-            else if (distance <= 4 && QuickSwap.gunSwap == true)
+            
+            if (distance <= 4 && QuickSwap.gunSwap == true)
             {
                 inputTextGunSwap.SetActive(false);
 
